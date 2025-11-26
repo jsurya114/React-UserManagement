@@ -12,13 +12,14 @@ import { noCache } from "./middlewares/noCache.js"
 
 const app = express()
 
-const PORT = 3125
+const PORT = process.env.PORT
+const FRONTEND_URL = process.env.FRONTEND_URL
 
 dotenv.config()
 connectDB()
 
 app.use(cors({
-  origin: "http://localhost:5173", // your frontend URL
+  origin: FRONTEND_URL, // your frontend URL
   credentials: true
 }))
 app.use(cookieParser())

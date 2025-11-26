@@ -12,4 +12,5 @@ router.get("/user/:id",auth,adminController.getUserById)
 router.put("/updateuser/:id",auth,adminController.updateUser)
 router.delete("/deleteuser/:id",auth,adminController.deleteUser)
 
+
 export default router

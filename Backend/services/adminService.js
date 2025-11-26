@@ -3,6 +3,13 @@ import adminRepo from "../repositories/adminRepo.js";
 const adminService={
 
     Login:async(email,password)=>{
+        if(!email){
+            throw new Error("Email required")
+        }
+
+        if(!password){
+             throw new Error("Password required")
+        }
          let admin = await adminRepo.getAdmin(email)
            
          if(!admin){

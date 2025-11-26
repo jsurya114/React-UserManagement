@@ -10,6 +10,7 @@ import ProtectedAdmin from "./components/ProtectedAdmin.jsx"
 import ProtectedUser from "./components/ProtectedUserRoutes.jsx"
 import Profile from "./pages/user/Profile.jsx"
 import NotFound from "./pages/NotFound.jsx"
+import UserDetails from "./pages/admin/UserDetails.jsx"
 
 function App() {
 return(
@@ -20,6 +21,7 @@ return(
     <Route path="/admin/dashboard" element={<ProtectedAdmin><AdminDashboard/></ProtectedAdmin>}/>
     <Route path="/admin/createuser" element={<ProtectedAdmin><Create/></ProtectedAdmin>}/>
     <Route path="/admin/updateuser/:id" element={<ProtectedAdmin><Edit/></ProtectedAdmin>}/>
+    <Route path="/admin/userdetails/:id" element={<ProtectedAdmin><UserDetails/></ProtectedAdmin>} />
     {/* Admin */}
 
 

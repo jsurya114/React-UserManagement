@@ -4,6 +4,23 @@ const UserService={
 
      SignUp:async(data)=>{
         const {name,email,password,confirmpassword}=data
+
+        if (!password ) {
+            throw new Error("Password  required")
+        }
+        
+
+         if(!email){
+            throw new Error("Email required")
+        }
+
+        if(!password){
+             throw new Error("Password required")
+        }
+
+        if(!confirmpassword){
+          throw new Error("confirmPassword required")
+        }
           
         if(password!==confirmpassword){
             throw new Error("Passwords do not match")
@@ -23,6 +40,14 @@ const UserService={
 
      Login:async(email,password)=>{
 
+      
+        if(!email){
+            throw new Error("Email required")
+        }
+
+        if(!password){
+             throw new Error("Password required")
+        }
         const user = await userRepo.findByEmail(email)
 
         if(!user){

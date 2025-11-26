@@ -37,30 +37,56 @@ function AdminLogin(){
         dispatch(LoginAdmin(formData))
     }
 
- return(
-        <>
-         <div className="h-screen flex justify-center items-center bg-gray-100">
-           
-            <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-80">
-               <h2 className="text-xl font-semibold text-center mb-4">Admin Login</h2>
-                <input type="email" name="email" placeholder="Email Email" className="border p-2 w-full rounded mb-3" onChange={handleChange} required/>
-                <input type="password" name="password" placeholder="Enter Password" className="border p-2 w-full rounded mb-3" onChange={handleChange} required/>
-                {error && (
-                     <p className="text-red-500 text-sm mb-2 text-center">{error}</p>
-                )}
-
-                <button type="submit"className="bg-blue-500 w-full text-white p-2 rounded hover:bg-blue-600" disabled={loading}>
-                    {loading?"Loading...":"Login"}
-                </button>
-
-                
-
-            </form>
-
-        </div>
+ return (
+  <>
+    <div className="h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      <div className="bg-white/10 backdrop-blur-lg shadow-2xl p-8 rounded-2xl w-96 border border-white/20">
         
-        </>
- )
+        {/* Title */}
+        <h2 className="text-2xl font-bold text-center text-white mb-1 tracking-wide">
+          Admin Panel
+        </h2>
+        <p className="text-center text-gray-300 text-sm mb-6">Sign in to continue</p>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          
+          <input 
+            type="email" 
+            name="email"
+            placeholder="Email Address"
+            className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 border border-gray-700 focus:border-blue-500 outline-none transition"
+            onChange={handleChange} 
+          />
+
+          <input 
+            type="password" 
+            name="password"
+            placeholder="Password"
+            className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 border border-gray-700 focus:border-blue-500 outline-none transition"
+            onChange={handleChange} 
+          />
+
+          {/* Error Message */}
+          {error && (
+            <p className="text-red-400 text-sm text-center bg-red-900/20 py-2 rounded-lg border border-red-700">
+              {error}
+            </p>
+          )}
+
+          {/* Button */}
+          <button 
+            type="submit"
+            className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 transition-all rounded-lg text-white font-semibold shadow-lg"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+      </div>
+    </div>
+  </>
+);
 
 }
 
